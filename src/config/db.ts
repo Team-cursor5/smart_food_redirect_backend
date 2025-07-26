@@ -4,8 +4,8 @@ import { Pool } from 'pg';
 import * as schema from '../schema';
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // store your Neon URL in .env
-  ssl: true, // required for Neon
+  connectionString: process.env.DB_URI, // Use DB_URI from env config
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
 export const db = drizzle(pool, { schema });
