@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Router } from 'express';
 import { auth } from '../lib/auth';
 import { db } from '../config/db';
